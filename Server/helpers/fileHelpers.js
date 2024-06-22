@@ -1,18 +1,18 @@
 "use strict";
 import multer from "multer";
-// import { storage } from "../cloudConfig.js";
+import { storage } from "../cloudConfig.js";
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads");
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
-    );
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "uploads");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(
+//       null,
+//       new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
+//     );
+//   },
+// });
 
 const filefilter=(req,file,cb)=>{
     if(file.mimetype === "video/mp4"){
@@ -22,6 +22,6 @@ const filefilter=(req,file,cb)=>{
     }
 }
 const upload = multer({ storage:storage,fileFilter:filefilter });
-// const upload = multer({storage:storage,fileFilter:filefilter});
+
 export default upload;
-// export default upload
+

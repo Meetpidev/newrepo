@@ -6,6 +6,7 @@ import userRoutes from "./rotes/user.js";
 import videoRouts from "./rotes/video.js";
 import commentsRouts from "./rotes/comments.js";
 import subscribeRouts from "./rotes/subscribe.js";
+import cloudinary from 'cloudinary';
 import { Server } from "socket.io";
 import cors from "cors";
 import path from "path";
@@ -37,6 +38,12 @@ main().then(() => {
 async function main() {
     await mongoose.connect(DB_URL);
 }
+
+cloudinary.v2.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API,
+    api_secret: process.env.CLOUD_SECRET,
+})
 
 app.use("/user",userRoutes);
 app.use("/video",videoRouts);
