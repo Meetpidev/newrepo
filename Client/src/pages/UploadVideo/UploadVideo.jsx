@@ -20,76 +20,76 @@ function UploadVideo({setvideoUploadPage}) {
         setVideoFile(e.target.files[0]);
     }
 
-    // let FileOptions = () => {
-    //         onUploadProgress: (progressEvent) => {
-    //         const { loaded, total} = progressEvent;
-    //         const percentage = Math.floor(((loaded/1000)*100)/(total/100))
-    //         setProgress(percentage);
-    //         if(percentage===100)
-    //           {
-    //             setTimeout(function(){},3000)
-    //             setvideoUploadPage(false)
-    //           }
-    //       }
+    let FileOptions = () => {
+            onUploadProgress: (progressEvent) => {
+            const { loaded, total} = progressEvent;
+            const percentage = Math.floor(((loaded/1000)*100)/(total/100))
+            setProgress(percentage);
+            if(percentage===100)
+              {
+                setTimeout(function(){},3000)
+                setvideoUploadPage(false)
+              }
+          }
 
-    // }
+    }
     
 
-    // let handleUploadVideo = () => {
-    //     if(!title){
-    //         alert("Enter Title");
-    //     }
-    //     else if(!videoFile){
-    //         alert("Upload Video");
-    //     }
-    //     else if(videoFile.size > 100000000000){
-    //         alert("Please Upload Video Les Then 1Tb Size");
-    //     }
-    //     else{
-    //         const fileData = new FormData();
-    //         fileData.append("file", videoFile);
-    //         fileData.append("title", title);
-    //         fileData.append("chanel", CurrentUser?.result._id);
-    //         fileData.append("Uploader", CurrentUser?.result.name);
-    //         console.log("videoFiles:",videoFile)
+    let handleUploadVideo = () => {
+        if(!title){
+            alert("Enter Title");
+        }
+        else if(!videoFile){
+            alert("Upload Video");
+        }
+        else if(videoFile.size > 100000000000){
+            alert("Please Upload Video Les Then 1Tb Size");
+        }
+        else{
+            const fileData = new FormData();
+            fileData.append("file", videoFile);
+            fileData.append("title", title);
+            fileData.append("chanel", CurrentUser?.result._id);
+            fileData.append("Uploader", CurrentUser?.result.name);
+            console.log("videoFiles:",videoFile)
 
-    //         dispatch(uploadVideo({
-    //             fileData: fileData, 
-    //             fileOptions: FileOptions
-    //         }))
-    //         alert("Video Uploaded Successfully");
-    //         setvideoUploadPage(false);
-    //     }
-    // }
-
-    const handleUploadVideo = () => {
-    if (!title) {
-      alert("Enter Title");
-    } else if (!videoFile) {
-      alert("Upload Video");
-    } else if (videoFile.size > 100000000000) {
-      alert("Please Upload Video Less Than 1TB in Size");
-    } else {
-      const fileData = new FormData();
-      fileData.append("file", videoFile);
-      fileData.append("title", title);
-      fileData.append("chanel", CurrentUser?.result._id);
-      fileData.append("Uploader", CurrentUser?.result.name);
-
-      dispatch(
-        uploadVideo(fileData, (progressEvent) => {
-          const { loaded, total } = progressEvent;
-          const percentage = Math.floor((loaded / total) * 100);
-          setProgress(percentage);
-          if (percentage === 100) {
-            setTimeout(() => {
-              setvideoUploadPage(false);
-            }, 3000);
-          }
-        })
-      );
+            dispatch(uploadVideo({
+                fileData: fileData, 
+                fileOptions: FileOptions
+            }))
+            alert("Video Uploaded Successfully");
+            setvideoUploadPage(false);
+        }
     }
-  };
+
+  //   const handleUploadVideo = () => {
+  //   if (!title) {
+  //     alert("Enter Title");
+  //   } else if (!videoFile) {
+  //     alert("Upload Video");
+  //   } else if (videoFile.size > 100000000000) {
+  //     alert("Please Upload Video Less Than 1TB in Size");
+  //   } else {
+  //     const fileData = new FormData();
+  //     fileData.append("file", videoFile);
+  //     fileData.append("title", title);
+  //     fileData.append("chanel", CurrentUser?.result._id);
+  //     fileData.append("Uploader", CurrentUser?.result.name);
+
+  //     dispatch(
+  //       uploadVideo(fileData, (progressEvent) => {
+  //         const { loaded, total } = progressEvent;
+  //         const percentage = Math.floor((loaded / total) * 100);
+  //         setProgress(percentage);
+  //         if (percentage === 100) {
+  //           setTimeout(() => {
+  //             setvideoUploadPage(false);
+  //           }, 3000);
+  //         }
+  //       })
+  //     );
+  //   }
+  // };
 
   return (
     <>

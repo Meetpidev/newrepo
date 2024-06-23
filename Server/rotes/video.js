@@ -10,7 +10,7 @@ import auth from "../middleware/auth.js";
 
 const routes = express.Router();
 
-routes.post("/uploadvideo",auth,upload.single("file"),uploadvideo);
+routes.post("/uploadvideo" ,upload.single("file"), uploadvideo);
 
 routes.get("/getvideos",getAllvideos);
 routes.patch("/like/:id", likeController );

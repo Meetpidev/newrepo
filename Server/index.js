@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json({limit:"30mb",extended: true}));
 app.use(express.urlencoded({limit:"30mb",extended: true}));
-// app.use("/uploads",express.static(path.join("uploads")));
+app.use("/uploads",express.static(path.join("uploads")));
 
 
 // main().then(() => {
@@ -39,7 +39,7 @@ app.use(express.urlencoded({limit:"30mb",extended: true}));
 // }
 
 mongoose
-    .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(DB_URL)
     .then(() => {
         console.log("Connection Successful..");
     })
