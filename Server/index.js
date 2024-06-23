@@ -6,7 +6,6 @@ import userRoutes from "./rotes/user.js";
 import videoRouts from "./rotes/video.js";
 import commentsRouts from "./rotes/comments.js";
 import subscribeRouts from "./rotes/subscribe.js";
-import cloudinary from 'cloudinary';
 import { Server } from "socket.io";
 import cors from "cors";
 import path from "path";
@@ -27,23 +26,25 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json({limit:"30mb",extended: true}));
 app.use(express.urlencoded({limit:"30mb",extended: true}));
-app.use("/uploads",express.static(path.join("uploads")));
+// app.use("/uploads",express.static(path.join("uploads")));
 
 
-main().then(() => {
-    console.log("Connection Successful..");
-})
-    .catch(err => console.log(err))
+// main().then(() => {
+//     console.log("Connection Successful..");
+// })
+//     .catch(err => console.log(err))
 
-async function main() {
-    await mongoose.connect(DB_URL);
-}
+// async function main() {
+//     await mongoose.connect(DB_URL);
+// }
 
-cloudinary.v2.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.CLOUD_API,
-    api_secret: process.env.CLOUD_SECRET,
-})
+mongoose
+    .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("Connection Successful..");
+    })
+    .catch((err) => console.log(err));
+
 
 app.use("/user",userRoutes);
 app.use("/video",videoRouts);

@@ -13,8 +13,6 @@ function Searchbar() {
 
   const searchTitles = useSelector(s => s?.videoReducer)?.data?.filter(q => q?.videoTitle.includes(searchQuary?.toUpperCase())).map(m=>m?.videoTitle);
 
-  console.log('SearchTite:',searchTitles);
- 
   // const searchTitles = [
   //   "tmkoc old episod",
   //   "jijai Chhat par hai",

@@ -1,15 +1,26 @@
 import * as api from "../api";
 
-export const uploadVideo = (videoData) => async (dispatch) => {
-  try {
-    const { fileData, fileOptions } = videoData;
-    const {data}= await api.uploadVideo(fileData, fileOptions)
-    dispatch({type:'POST_VIDEO',data})
-    dispatch(getAllvideos())
-  } catch (error) {
-    alert(error.response.data.message)
-  }
+// export const uploadVideo = (videoData) => async (dispatch) => {
+//   try {
+//     const { fileData, fileOptions } = videoData;
+//     const {data}= await api.uploadVideo(fileData, fileOptions)
+//     dispatch({type:'POST_VIDEO',data})
+//     dispatch(getAllvideos())
+//   } catch (error) {
+//     alert(error.response.data.message)
+//   }
 
+// };
+
+export const uploadVideo = (fileData, onUploadProgress) => async (dispatch) => {
+  try {
+    const { data } = await api.uploadVideo(fileData, { onUploadProgress });
+    console.log("Data:",data)
+    dispatch({ type: 'POST_VIDEO', data });
+    dispatch(getAllvideos());
+  } catch (error) {
+    alert(error.response.data.message);
+  }
 };
 
 export const getAllvideos = () => async (dispatch) =>{
