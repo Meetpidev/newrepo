@@ -19,7 +19,6 @@ function VideoPage() {
   const API_KEY = '869c3f013c150818e8de43cfa1a7a3f2';
 
   const CurrentUser = useSelector((state) => state?.currentUserReducer);
-  const videoRef = useRef(null);
    
   const {vid} = useParams();
   // console.log("video id is ",vid);
@@ -34,28 +33,27 @@ function VideoPage() {
   const [isDownloadable, setIsDownloadable] = useState(false);
   const [subscribe,setsubscribe] = useState(false);
 
-  const [index, setIndex] = useState(
-    vids?.data.findIndex((q) => q._id === vid)
-  );
+  // const [index, setIndex] = useState(
+  //   vids?.data.findIndex((q) => q._id === vid)
+  // );
 
-  console.log(index);
+  // console.log(index);
  
-  const [Vvv, setVvv] = useState(vids.data[index]);
-  const sz = vids.data.length;
-  console.log(sz)
-  console.log("before", Vvv.filePath);
-  const normalizeFilePath = (filePath) => {
-    // Replace backslashes with forward slashes
-    return filePath.replace(/\\/g, "/");
-  };
+  // const [Vvv, setVvv] = useState(vids.data[index]);
+  // const sz = vids.data.length;
+  // console.log(sz)
+  // console.log("before", Vvv.filePath);
+  // const normalizeFilePath = (filePath) => {
+  //   return filePath.replace(/\\/g, "/");
+  // };
 
-  normalizeFilePath(Vvv.filePath);
-  console.log("after", Vvv.filePath);
+  // normalizeFilePath(Vvv.filePath);
+  // console.log("after", Vvv.filePath);
   
 
-  useEffect(() => {
-    setVvv(vids.data[index]);
-  }, [index]);
+  // useEffect(() => {
+  //   setVvv(vids.data[index]);
+  // }, [index]);
 
 
     const dispatch = useDispatch();
@@ -88,20 +86,16 @@ function VideoPage() {
     }, []);
     
     // console.log("idex:",index)
-    const handleNextVideo = () => {
-      if (index + 1 < sz) {
-        setIndex((preindex) => preindex + 1);
-        console.log("if")
-      } else {
-        setIndex(0);
-        console.log("else")
-      }
-      console.log("next video")
-    };
-  
-    const handleShowComments = () => {
-      console.log("Show comments");
-    };
+    // const handleNextVideo = () => {
+    //   if (index + 1 < sz) {
+    //     setIndex((preindex) => preindex + 1);
+    //     console.log("if")
+    //   } else {
+    //     setIndex(0);
+    //     console.log("else")
+    //   }
+    //   console.log("next video")
+    // };
   
     const handleShowLocation = () => {
       navigator.geolocation.getCurrentPosition((position)=>{
@@ -135,10 +129,10 @@ function VideoPage() {
       }
     }
   
-    const handleCloseWebsite = () => {
-      window.close();
-      console.log("Close website");
-    };
+    // const handleCloseWebsite = () => {
+    //   window.close();
+    //   console.log("Close website");
+    // };
 
     const isdownloadclick = () => {
       setIsDownloadable(true);
@@ -198,19 +192,12 @@ function VideoPage() {
         alert("Please log in to subscribe to the channel.");
       }
     }
-  // console.log("Vids: ",vids);
 
   const vv = vids?.data.filter((q) => q._id === vid)[0];
   
   console.log(vv);
 
   const videoSize = vv?.fileSize ? `${Math.floor(vv?.fileSize / 1024 / 1024)} MB` : 'Unknown'; // Convert to MB and format
-
-
-  // const chanels = useSelector(state=>state?.chanellReducer);
-    // console.log("Channels:",chanels);
-
-    // const CurrentChanel = chanels.filter(e=>e._id===vid)[0];
 
   return (
    <>
@@ -221,10 +208,7 @@ function VideoPage() {
           <div className="video_showcase">
            <VideoPlayer 
             videoSrc={`http://localhost:8080/${vv?.filePath}`}
-            nextVideo={handleNextVideo}
-            showComments={handleShowComments}
             showLocation={handleShowLocation}
-            closeWebsite={handleCloseWebsite} 
             className="video_play_screen"
            ></VideoPlayer>
            </div>
