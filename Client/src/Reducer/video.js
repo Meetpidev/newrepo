@@ -1,4 +1,9 @@
-const videoReducer =(state= {data:null},action)=>{
+const videoReducer =(state= {
+    data:null,
+    currentIndex: parseInt(localStorage.getItem('currentVideoIndex'), 10) || 0,
+
+},action ) => {
+
     switch(action.type){
         case 'POST_VIDEO':
             return {...state};
@@ -8,6 +13,9 @@ const videoReducer =(state= {data:null},action)=>{
 
         case 'FETCH_ALL_VIDEOS':
             return {...state,data:action.payload};
+
+        case 'SET_CURRENT_VIDEO_INDEX':
+            return { ...state, currentIndex: action.payload };
             
         default:
             return state;

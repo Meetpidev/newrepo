@@ -11,30 +11,6 @@ export const uploadVideo = (videoData) => async (dispatch) => {
   }
 
 };
-// export const uploadVideo = (fileData, onUploadProgress) => async (dispatch) => {
-//   try {
-//     const { data } = await api.uploadVideo(fileData, { onUploadProgress });
-//     console.log("Data:",data)
-//     dispatch({ type: 'POST_VIDEO', data });
-//     dispatch(getAllvideos());
-//   } catch (error) {
-//     alert(error.response.data.message);
-//   }
-// };
-
-// export const uploadVideo = (fileData, onUploadProgress) => async (dispatch) => {
-//   try {
-//     const { data } = await api.uploadVideo(fileData, { onUploadProgress });
-//     console.log("priting data",data);
-//     alert(data);
-//     dispatch({ type: 'POST_VIDEO', data });
-//     dispatch(getAllvideos());
-//   } catch (error) {
-//     console.log(error);
-//     alert(error.response.data.message);
-//   }
-// };
-
 
 export const getAllvideos = () => async (dispatch) =>{
     try {
@@ -70,4 +46,4 @@ export const likeVideo=(LikeDate)=>async(dispatch)=>{
     } catch (error) {
       console.log(error)
     }
-  }  
+  } 

@@ -33,27 +33,27 @@ function VideoPage() {
   const [isDownloadable, setIsDownloadable] = useState(false);
   const [subscribe,setsubscribe] = useState(false);
 
-  // const [index, setIndex] = useState(
-  //   vids?.data.findIndex((q) => q._id === vid)
-  // );
+  const [index, setIndex] = useState(
+    vids?.data.findIndex((q) => q._id === vid)
+  );
 
-  // console.log(index);
+  console.log(index);
  
-  // const [Vvv, setVvv] = useState(vids.data[index]);
-  // const sz = vids.data.length;
-  // console.log(sz)
-  // console.log("before", Vvv.filePath);
-  // const normalizeFilePath = (filePath) => {
-  //   return filePath.replace(/\\/g, "/");
-  // };
+  const [Vvv, setVvv] = useState(vids.data[index]);
+  const sz = vids.data.length;
+  console.log(sz)
+  console.log("before", Vvv.filePath);
+  const normalizeFilePath = (filePath) => {
+    return filePath.replace(/\\/g, "/");
+  };
 
-  // normalizeFilePath(Vvv.filePath);
-  // console.log("after", Vvv.filePath);
+  normalizeFilePath(Vvv.filePath);
+  console.log("after", Vvv.filePath);
   
 
-  // useEffect(() => {
-  //   setVvv(vids.data[index]);
-  // }, [index]);
+  useEffect(() => {
+    setVvv(vids.data[index]);
+  }, [index]);
 
 
     const dispatch = useDispatch();
@@ -85,17 +85,17 @@ function VideoPage() {
         handleViews();
     }, []);
     
-    // console.log("idex:",index)
-    // const handleNextVideo = () => {
-    //   if (index + 1 < sz) {
-    //     setIndex((preindex) => preindex + 1);
-    //     console.log("if")
-    //   } else {
-    //     setIndex(0);
-    //     console.log("else")
-    //   }
-    //   console.log("next video")
-    // };
+    console.log("idex:",index)
+    const handleNextVideo = () => {
+      if (index + 1 < sz) {
+        setIndex((preindex) => preindex + 1);
+        console.log("if")
+      } else {
+        setIndex(0);
+        console.log("else")
+      }
+      console.log("next video")
+    };
   
     const handleShowLocation = () => {
       navigator.geolocation.getCurrentPosition((position)=>{
@@ -140,11 +140,11 @@ function VideoPage() {
 
     const handleDownload = async () => {
       if (!isDownloadable) {
-        return; // Prevent download if not allowed
+        return;
       }
   
-      const videoUrl = `http://localhost:8080/${vv?.filePath}`; // Replace with your video URL format
-      const filename = `${vv?.videoTitle}.mp4`; // Customize filename if needed
+      const videoUrl = `http://localhost:8080/${vv?.filePath}`; 
+      const filename = `${vv?.videoTitle}.mp4`; 
   
       try {
         const response = await fetch(videoUrl);
@@ -157,10 +157,9 @@ function VideoPage() {
         link.href = URL.createObjectURL(blob);
         link.download = filename;
         link.click();
-        URL.revokeObjectURL(link.href); // Revoke temporary URL
+        URL.revokeObjectURL(link.href); 
       } catch (error) {
         console.error('Error downloading video:', error);
-        // Handle download error gracefully (e.g., display an error message to the user)
       }
     };
     
@@ -258,7 +257,7 @@ function VideoPage() {
          
             </div>
 
-            <div className="comments_box">
+            <div id="comments-section" className="comments_box">
                 <h2>Comments</h2>
                 <Comments videoId={vv._id}></Comments>
             </div>
