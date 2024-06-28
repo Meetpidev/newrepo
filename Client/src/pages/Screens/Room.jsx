@@ -29,7 +29,7 @@ const Room = () => {
           },
         ],
         scenario: {
-          mode: ZegoUIKitPrebuilt.GroupCall, // Change to ZegoUIKitPrebuilt.OneONoneCall for 1-on-1 calls.
+          mode: ZegoUIKitPrebuilt.GroupCall, 
         },
       });
     };

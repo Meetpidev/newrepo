@@ -40,6 +40,4 @@ export const getAllvideos = async (req, res)=>{
       res.status(404).send(error.message)
     }
   }
-
   
-     

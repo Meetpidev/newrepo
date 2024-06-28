@@ -1,10 +1,7 @@
-
 import { GoogleLogout } from "react-google-login";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { setCurrentUser } from "../../actions/SetCurrentUser";
 import { Link } from "react-router-dom";
-import ArrowCircleRightSharpIcon from '@mui/icons-material/ArrowCircleRightSharp';
 import "./Auth.css";
 
 function Auth({User, setAuthBtn, setCreatchanel}) {

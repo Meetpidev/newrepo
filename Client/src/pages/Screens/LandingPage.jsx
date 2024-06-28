@@ -10,7 +10,7 @@ function LandingPage() {
   useEffect(() => {
     const checkTime = () => {
       const currentHour = new Date().getHours();
-      if (currentHour >= 18 || currentHour < 24) {
+      if (currentHour >= 18 && currentHour < 24) {
         setIsAllowedTime(true);
       } else {
         setIsAllowedTime(false);

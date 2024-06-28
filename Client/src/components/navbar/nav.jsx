@@ -1,30 +1,28 @@
-import Searchbar from "./searchbar/searchbar";
 import { Link } from "react-router-dom";
-import GoogleLogin from "react-google-login";
 import {gapi} from "gapi-script";
-import "./navbar.css";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { login } from "../../actions/auth";
+import Searchbar from "./searchbar/searchbar";
+import GoogleLogin from "react-google-login";
 import Auth from "../../pages/Auth/Auth";
+import "./navbar.css";
 
 function Nav({ toggleDrawer , setCreatchanel }) {
 
   const [AuthBtn,setAuthBtn] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // const CurrentUser = null;
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+        setLoading(false);
+    }, 8000);
+}, []);
 
   const CurrentUser = useSelector(state=>state.currentUserReducer)
-  // console.log(CurrentUser);
-
-  // const CurrentUser = {
-  //   result:{
-  //     email:"meetkshah3112@gmail.com",
-  //     joinedon:"2222-07-15T09:57:23.489Z"
-  //   }
-  // };
-  // console.log(CurrentUser)
+ 
   useEffect(()=>{
     function start() {
       gapi.client.init({
@@ -50,7 +48,7 @@ function Nav({ toggleDrawer , setCreatchanel }) {
 
   return (
     <>
-    <div className="container_navbar">
+        <div className="container_navbar">
         <div className="bars_logo_navbar">
 
           <div className="bars" onClick={() => toggleDrawer()}>

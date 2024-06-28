@@ -4,14 +4,16 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import "./Chanel_Description.css";
 
 function Chanel_Description({setCreatchanel, cid, setvideoUploadPage}) {
-
-    const chanels = useSelector(state=>state?.chanellReducer);
+    
+  const chanels = useSelector(state=>state?.chanellReducer);
     console.log(chanels);
 
     const curentChanel = chanels.filter(e=>e._id===cid)[0];
     console.log(curentChanel);
 
    const CurrentUser = useSelector((state) => state?.currentUserReducer);
+   const points = useSelector(state => state.pointsReducer.points);
+   const userPoints = CurrentUser?.result?.points || 0;
 
   return (
     <>
@@ -40,7 +42,7 @@ function Chanel_Description({setCreatchanel, cid, setvideoUploadPage}) {
                        <b> Upload Video</b>
                      </p>
                      
-                      <p className='points'>Points: {CurrentUser?.result?.points || 0}</p>
+                      <p className='points'>Points: {userPoints}</p>
                   </>
                )
             }

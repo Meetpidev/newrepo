@@ -14,29 +14,46 @@ import Room from "../pages/Screens/Room.jsx";
 import VideoRecord from "../pages/VideoRecord/VideoRecord.jsx";
 import "./AllRouts.css";
 import Callstream from "../pages/Screens/callstream.jsx";
+// import ScaleLoader from "react-spinners/ScaleLoader";
+// import { useState, useEffect } from 'react';
 
+export default function AllRoutes({ setCreatchanel, setvideoUploadPage }) {
+    // const [loading, setLoading] = useState(false);
 
-export default function AllRoutes({setCreatchanel, setvideoUploadPage}){
+    // useEffect(() => {
+    //     setLoading(true);
+    //     setTimeout(() => {
+    //         setLoading(false);
+    //     }, 3000);
+    // }, []);
+
+    // const color = "#123abc"; // Define the color variable
+
     return (
         <>
-        
-        <Routes>
-          <Route path="/" element={ <Home></Home>}></Route>
-          <Route path="/librery" element={ <Librery ></Librery>}></Route>
-          <Route path="/like" element={ <LikedVideos></LikedVideos> }></Route>  
-          <Route path="/watchlater" element={ <WatchLater></WatchLater> }></Route>  
-          <Route path="/yourvideos" element={ <YourVideos ></YourVideos> }></Route>  
-          <Route path="/feed/history" element={ <History ></History> }></Route>  
-          <Route path="/feed/playlist" element={ <PlayList ></PlayList> }></Route>  
-          <Route path="/videopage/:vid" element={ <VideoPage ></VideoPage> }></Route>  
-          <Route path="/chanel/:cid" element={ <Chanel setCreatchanel = {setCreatchanel} setvideoUploadPage = {setvideoUploadPage}></Chanel> }></Route> 
-          <Route path="/search/:searchQuery" element={ <Search></Search> }></Route>
-          <Route path="/meeting" element={<Lobby></Lobby>}></Route>
-          <Route path="/meeting2" element={<Callstream></Callstream>}></Route>
-          <Route path="/room/:id" element={<Room></Room>}></Route>
-          <Route path="/record" element={<VideoRecord></VideoRecord>}></Route>
-        </Routes>
-
+            {/* {loading ? (
+                <ScaleLoader
+                    color={color}
+                    loading={loading}
+                    className="loaders"
+                />
+            ) : ( */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/librery" element={<Librery />} />
+                    <Route path="/like" element={<LikedVideos />} />
+                    <Route path="/watchlater" element={<WatchLater />} />
+                    <Route path="/yourvideos" element={<YourVideos />} />
+                    <Route path="/feed/history" element={<History />} />
+                    <Route path="/feed/playlist" element={<PlayList />} />
+                    <Route path="/videopage/:vid" element={<VideoPage />} />
+                    <Route path="/chanel/:cid" element={<Chanel setCreatchanel={setCreatchanel} setvideoUploadPage={setvideoUploadPage} />} />
+                    <Route path="/search/:searchQuery" element={<Search />} />
+                    <Route path="/meeting" element={<Lobby />} />
+                    <Route path="/meeting2" element={<Callstream />} />
+                    <Route path="/room/:id" element={<Room />} />
+                    <Route path="/record" element={<VideoRecord />} />
+                </Routes>
         </>
-    )
+    );
 }

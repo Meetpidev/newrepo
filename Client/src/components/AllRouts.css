@@ -1,3 +1,10 @@
 *{
     text-decoration: none;
 }
+.loaders{
+    position: absolute;
+    left: 750px;
+    top: 300px;
+    height: 4rem;
+    width: 4rem;
+}

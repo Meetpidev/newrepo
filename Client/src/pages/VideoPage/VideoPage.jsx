@@ -33,33 +33,9 @@ function VideoPage() {
   const [isDownloadable, setIsDownloadable] = useState(false);
   const [subscribe,setsubscribe] = useState(false);
 
-  const [index, setIndex] = useState(
-    vids?.data.findIndex((q) => q._id === vid)
-  );
-
-  console.log(index);
- 
-  const [Vvv, setVvv] = useState(vids.data[index]);
-  const sz = vids.data.length;
-  console.log(sz)
-  console.log("before", Vvv.filePath);
-  const normalizeFilePath = (filePath) => {
-    return filePath.replace(/\\/g, "/");
-  };
-
-  normalizeFilePath(Vvv.filePath);
-  console.log("after", Vvv.filePath);
-  
-
-  useEffect(() => {
-    setVvv(vids.data[index]);
-  }, [index]);
-
-
     const dispatch = useDispatch();
 
     const currentUser = useSelector(state => state.currentUserReducer);
-
     const userId = currentUser?.result?._id;
 
     const handleViews=()=>{
@@ -67,7 +43,7 @@ function VideoPage() {
         id:vid
       }))
     }
-  
+
     let handleHistory = () => {
       dispatch(
         addToHistory({
@@ -85,17 +61,6 @@ function VideoPage() {
         handleViews();
     }, []);
     
-    console.log("idex:",index)
-    const handleNextVideo = () => {
-      if (index + 1 < sz) {
-        setIndex((preindex) => preindex + 1);
-        console.log("if")
-      } else {
-        setIndex(0);
-        console.log("else")
-      }
-      console.log("next video")
-    };
   
     const handleShowLocation = () => {
       navigator.geolocation.getCurrentPosition((position)=>{
@@ -128,11 +93,6 @@ function VideoPage() {
         console.log("Nothing")
       }
     }
-  
-    // const handleCloseWebsite = () => {
-    //   window.close();
-    //   console.log("Close website");
-    // };
 
     const isdownloadclick = () => {
       setIsDownloadable(true);
