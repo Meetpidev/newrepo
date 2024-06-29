@@ -10,7 +10,7 @@ function VideoShowCase({vid}) {
    <>
    <div className="show_video">
      <Link to={`/videopage/${vid?._id}`}>
-       <video src={`http://localhost:8080/${vid?.filePath}`} ></video>
+       <video src={`https://newrepo444.onrender.com/${vid?.filePath}`} ></video>
      </Link>
    
 

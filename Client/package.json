@@ -23,6 +23,7 @@
     "@zegocloud/zego-uikit-prebuilt": "^2.5.0",
     "axios": "^1.7.2",
     "buffer": "^6.0.3",
+    "dotenv": "^16.4.5",
     "gapi": "^0.0.3",
     "gapi-script": "^1.2.0",
     "js-confetti": "^0.12.0",
