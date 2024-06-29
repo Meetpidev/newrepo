@@ -24,7 +24,7 @@ function Callstream() {
     </div>
     <div className="content">
        <span className="title">Get Started</span>
-       <p className="message">Join the meeting and Copy the personal link and share it to your friends.</p>
+       <p className="message">To Call to your friend, Copy the personal link and share it to your friends.</p>
     </div>
     <div>
     <label className="label">
@@ -58,7 +58,7 @@ function Callstream() {
     
     </div>
      <div className="actions">
-       <button className="desactivate" onClick={()=>handleSubmit(name)} type="button">Join Meeting</button>
+       <button className="desactivate" onClick={()=>handleSubmit(name)} type="button">Call</button>
     </div>
   </div>
   </div>
