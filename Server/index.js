@@ -15,7 +15,7 @@ if (process.env.NODE_ENV != "production") {
     dotenv.config();
 }
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;;
 const DB_URL = process.env.CONNECTION_URL;
 const io = new Server(8000 , {
     cors: true,
