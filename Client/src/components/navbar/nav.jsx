@@ -12,14 +12,6 @@ import "./navbar.css";
 function Nav({ toggleDrawer , setCreatchanel }) {
 
   const [AuthBtn,setAuthBtn] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-        setLoading(false);
-    }, 8000);
-}, []);
 
   const CurrentUser = useSelector(state=>state.currentUserReducer)
  

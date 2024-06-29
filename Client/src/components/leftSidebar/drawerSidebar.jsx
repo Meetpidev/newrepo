@@ -6,7 +6,11 @@ function DrawerSidebar({totoggleDrawer,totoggleDrawerStyle}) {
 
   
   const CurrentUser = useSelector((state) => state?.currentUserReducer);
-  const chanels = useSelector(state=>state?.chanellReducer);
+  let chanels = useSelector(state=>state?.chanellReducer);
+
+  if(!Array.isArray(chanels)){ 
+    chanels = [];
+}
 
   return (
     <div className="container_drawer" style={totoggleDrawerStyle}>
