@@ -103,7 +103,8 @@ function VideoPage() {
         return;
       }
   
-      const videoUrl = `http://localhost:8080/${vv?.filePath}`; 
+      const videoUrl = `https://newrepo444.onrender.com/${vv?.filePath}`; 
+      console.log("VidURL:",videoUrl)
       const filename = `${vv?.videoTitle}.mp4`; 
   
       try {
@@ -155,6 +156,8 @@ function VideoPage() {
   const vv = vids?.data.filter((q) => q._id === vid)[0];
   
   console.log(vv);
+  const videoUrl = `https://newrepo444.onrender.com/${vv?.filePath}`; 
+      console.log("VidURL:",videoUrl)
 
   const videoSize = vv?.fileSize ? `${Math.floor(vv?.fileSize / 1024 / 1024)} MB` : 'Unknown'; // Convert to MB and format
 
@@ -166,7 +169,7 @@ function VideoPage() {
          <div className="video_paly">
           <div className="video_showcase">
            <VideoPlayer 
-            videoSrc={`http://localhost:8080/${vv?.filePath}`}
+            videoSrc={`https://newrepo444.onrender.com/${vv?.filePath}`}
             showLocation={handleShowLocation}
             className="video_play_screen"
            ></VideoPlayer>
@@ -204,7 +207,7 @@ function VideoPage() {
                           <div className="button-wrapper">
                             <div className="text">Download</div>
                               <span className="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
                               </span>
                             </div>
                           </div>

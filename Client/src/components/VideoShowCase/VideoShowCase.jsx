@@ -5,7 +5,7 @@ import "./VideoShowCase.css";
 //  onVideoWatched
 
 function VideoShowCase({vid}) {
- 
+
   return (
    <>
    <div className="show_video">

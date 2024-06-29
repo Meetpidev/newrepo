@@ -31,14 +31,7 @@ function App() {
             dispatch(getAllHistory()),
             dispatch(getAllComment()),
             dispatch(addPoints())
-        ]).then(() => {
-            setTimeout(()=>{
-              setLoading(false);
-            },7000)
-        }).catch((error) => {
-            console.error('Error fetching data:', error);
-            setLoading(false); 
-        });
+        ])
     }, [dispatch]);
 
     const [togglebar, settogglebar] = useState({ display: "none" });
