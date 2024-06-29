@@ -45,7 +45,9 @@ mongoose
     })
     .catch((err) => console.log(err));
 
-
+app.get("/",(req,res)=>{
+    res.send("Hellow");
+})
 app.use("/user",userRoutes);
 app.use("/video",videoRouts);
 app.use("/comment",commentsRouts);
