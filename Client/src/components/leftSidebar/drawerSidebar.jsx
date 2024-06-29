@@ -91,11 +91,12 @@ function DrawerSidebar({totoggleDrawer,totoggleDrawerStyle}) {
         <div className="subcrption_part">
           <h3>Your Subscriptions</h3>
 
+          
           {chanels && chanels.length > 0 ? (
-            chanels.map((channel, index) => (
+            chanels?.map((channel, index) => (
               <div key={index} className="chanel2_bar">
-                <p>{channel.name[0]}</p>
-                <div className="channel_title">{channel.name}</div>
+                <p>{channel?.name?.[0]}</p>
+                <div className="channel_title">{channel?.name}</div>
               </div>
             ))
           ) : (
