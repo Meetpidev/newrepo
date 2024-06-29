@@ -12,7 +12,7 @@ import Nav from './components/navbar/nav.jsx';
 import DrawerSidebar from './components/leftSidebar/drawerSidebar.jsx';
 import AllRoutes from './components/AllRoutes.jsx';
 import CreateChennel from './pages/Chanel/CreateChennel.jsx';
-import ScaleLoader from "react-spinners/ScaleLoader";
+// import ScaleLoader from "react-spinners/ScaleLoader";
 import "./App.css";
 
 
@@ -20,7 +20,7 @@ import UploadVideo from './pages/UploadVideo/UploadVideo.jsx';
 function App() {
 
   const dispatch = useDispatch();
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         Promise.all([
@@ -51,21 +51,21 @@ function App() {
         }
     }
 
-    let note = () => {
-        alert("Please give the meaningful title of your video and your channel. Don't give it a random name.");
-    }
+    // let note = () => {
+    //     alert("Please give the meaningful title of your video and your channel. Don't give it a random name.");
+    // }
 
     const [Creatchanel, setCreatchanel] = useState(false);
     const [videoUploadPage, setvideoUploadPage] = useState(false);
 
-    if (loading) {
-        return (
-            <div className="loader-container">
-                <ScaleLoader className="loaders1" color={'#36D7B7'} loading={true} height={100} width={10} radius={2} margin={6} />
-            </div>
-        );
-    }
-    else{
+    // if (loading) {
+    //     return (
+    //         <div className="loader-container">
+    //             <ScaleLoader className="loaders1" color={'#36D7B7'} loading={true} height={100} width={10} radius={2} margin={6} />
+    //         </div>
+    //     );
+    // }
+    // else{
 
     return (
         <>
@@ -82,7 +82,7 @@ function App() {
             </div>
         </>
     );
-}
+// }
 }
 
 export default App
