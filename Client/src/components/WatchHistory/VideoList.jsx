@@ -1,4 +1,5 @@
 import ShowWatchhistory from "../ShowWatchHistory/ShowWatchhistory"
+import PropTypes from 'prop-types';
 
 
 function VideoLis({page,VideoList,CurrentUser}) {
@@ -30,5 +31,15 @@ console.log(VideoList?.data);
     </>
   )
 }
+
+
+VideoLis.propTypes = {
+  VideoList: PropTypes.array.isRequired,
+};
+
+
+VideoLis.defaultProps = {
+  VideoList: [],
+};
 
 export default VideoLis

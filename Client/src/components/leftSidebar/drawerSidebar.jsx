@@ -10,7 +10,7 @@ function DrawerSidebar({totoggleDrawer,totoggleDrawerStyle}) {
 
   if(!Array.isArray(chanels)){ 
     chanels = [];
-}
+  }
 
   return (
     <div className="container_drawer" style={totoggleDrawerStyle}>

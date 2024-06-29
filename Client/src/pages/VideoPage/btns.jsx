@@ -8,6 +8,7 @@ import { likeVideo } from "../../actions/Video.js";
 import "./btns.css";
 import { addToLikedVideo } from "../../api/index.js";
 import { addTowatchLater, deleteWatchLater } from "../../actions/watchLater.js";
+import PropTypes from 'prop-types';
 // import videoFiles from "../../../../Server/moduls/videoFiles";
 
 function Btns({vv,vid}) {
@@ -221,5 +222,15 @@ function Btns({vv,vid}) {
     </>
   )
 }
+
+
+// Btns.propTypes = {
+//    Btns: PropTypes.array.isRequired,
+// };
+
+
+// Btns.defaultProps = {
+//   Btns: [],
+// };
 
 export default Btns
