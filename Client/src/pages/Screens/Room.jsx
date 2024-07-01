@@ -28,7 +28,7 @@ const Room = () => {
         sharedLinks: [
           {
             name: 'Personal link',
-            url: `${window.location.protocol}//${window.location.host}${window.location.pathname}?/room/${roomID}`,
+            url: `${window.location.protocol}//${window.location.host}/room/${roomID}`,
           },
         ],
         scenario: {
