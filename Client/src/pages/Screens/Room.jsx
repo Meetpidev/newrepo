@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import axios from 'axios';
+
 import "./Lobby.css";
 
 const Room = () => {
@@ -12,6 +14,7 @@ const Room = () => {
   const [hasRecording, setHasRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
   const recordedChunks = useRef([]);
+  const API = axios.create({ baseURL: "https://newrepo444.onrender.com" });
 
   useEffect(() => {
     const initMeeting = async () => {
@@ -25,7 +28,7 @@ const Room = () => {
         sharedLinks: [
           {
             name: 'Personal link',
-            url: `${window.location.protocol}//${window.location.host}${window.location.pathname}?roomID=${roomID}`,
+            url: `${window.location.protocol}//${window.location.host}${window.location.pathname}?/room/${roomID}`,
           },
         ],
         scenario: {
