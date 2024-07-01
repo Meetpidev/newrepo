@@ -19,6 +19,6 @@ export const updateChanelData=(id,updateData)=> async(dispatch)=>{
         dispatch({type:"UPDATE_DATA",payload: data});
     }
     catch(error){
-        alert(error);
+        console.log(error);
     }
 }
